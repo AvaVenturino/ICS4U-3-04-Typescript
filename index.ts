@@ -13,9 +13,9 @@ function hanoi(ndisks: number, startPeg: number = 1, endPeg: number = 3): void {
     if (ndisks == 1) {
         console.log(`Move disk 1 from peg ${startPeg} to peg ${endPeg}`)
     } else {
-        hanoi(ndisks - 1, startPeg, 6 - startPeg - endPeg)
+        hanoi(numberOfDisks - 1, startPeg, numberPegs - startPeg - endPeg)
         console.log(`Move disk ${ndisks} from peg ${startPeg} to peg ${endPeg}`)
-        hanoi(ndisks - 1, 6 - startPeg - endPeg, endPeg)
+        hanoi(numberOfDisks - 1, numberPegs - startPeg - endPeg, endPeg)
     }
 }
 
@@ -24,10 +24,10 @@ function main(): void {
 
     // input
     console.log("Towers of Hanoi program\n")
-    const ndisks: number = parseInt(createPrompt("How many disks would you like in your tower (1->): "), 10)
+    const numOfDisks: number = parseInt(createPrompt("How many disks would you like in your tower (1->): "))
 
     // process
-    hanoi(ndisks)
+    hanoi(numOfDisks)
 
     // output
     console.log("\nDone.")
